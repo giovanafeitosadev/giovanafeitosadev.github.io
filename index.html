@@ -3,50 +3,91 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Giovana Feitosa | Links</title>
+  <title>Giovana Feitosa</title>
   <link rel="stylesheet" href="style.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body>
+
+  <!-- Tela de carregamento -->
+  <div id="loader">
+    <div class="loader-icon">VS</div>
+    <p>Carregando portfólio</p>
+    <div class="progress-bar"><div class="progress"></div></div>
+    <span>Seja bem-vindo ao meu perfil!</span>
+  </div>
+
+  <!-- Conteúdo Principal -->
   <div class="container">
     
-    <div class="card bio">
-      <p>Estudante de Ciência da Computação apaixonada por tecnologia. Focada em construir uma base sólida em <span>lógica</span>, <span>desenvolvimento</span> e <span>código limpo</span>.</p>
+    <!-- Perfil -->
+    <div class="profile-header">
+      <div class="avatar-container">
+        <img src="https://github.com/giovanafeitosadev.png" alt="Giovana Feitosa" class="avatar">
+      </div>
+      <h1>Giovana Feitosa</h1>
+      <p class="subtitle">Estudante de Ciência da Computação | Entusiasta da Comunidade Tech</p>
     </div>
 
+    <!-- Card sobre você -->
+    <div class="card bio">
+      <p>Estudante de Ciência da Computação apaixonada pela comunidade Tech. Foco em <span>desenvolvimento</span> e <span>lógica de programação</span>, buscando aprender continuamente e contribuir para projetos que fazem a diferença.</p>
+    </div>
+
+    <!-- Contato -->
     <p class="section-title">CONTATO</p>
     <a href="mailto:giovanafeitosa2306@gmail.com" class="card link-card border-pink">
+      <i data-lucide="mail" class="icon-pink"></i>
       <div class="info">
         <strong>ENVIAR EMAIL</strong>
         <span>giovanafeitosa2306@gmail.com</span>
       </div>
-      <span class="arrow">→</span>
+      <i data-lucide="arrow-right" class="arrow"></i>
     </a>
 
-    <p class="section-title">REDES SOCIAIS & PROFISSIONAIS</p>
+    <!-- Redes Profissionais -->
+    <p class="section-title">REDES PROFISSIONAIS</p>
+
     <a href="https://instagram.com/gitechgirl" target="_blank" class="card link-card">
+      <i data-lucide="instagram" class="icon-pink"></i>
       <div class="info">
         <strong>INSTAGRAM</strong>
         <span>@gitechgirl</span>
       </div>
-      <span class="arrow">→</span>
+      <i data-lucide="arrow-right" class="arrow"></i>
     </a>
 
     <a href="https://www.linkedin.com/in/giovana-feitosa-748a27307" target="_blank" class="card link-card">
+      <i data-lucide="linkedin" class="icon-pink"></i>
       <div class="info">
         <strong>LINKEDIN</strong>
         <span>Conecte-se comigo</span>
       </div>
-      <span class="arrow">→</span>
+      <i data-lucide="arrow-right" class="arrow"></i>
     </a>
 
     <a href="https://github.com/giovanafeitosadev" target="_blank" class="card link-card">
+      <i data-lucide="github" class="icon-pink"></i>
       <div class="info">
         <strong>GITHUB</strong>
-        <span>Meus projetos e código</span>
+        <span>Meus projetos e contribuições</span>
       </div>
-      <span class="arrow">→</span>
+      <i data-lucide="arrow-right" class="arrow"></i>
     </a>
 
+    <footer class="footer">
+      © 2026 Giovana Feitosa. Todos os direitos reservados.
+    </footer>
+
   </div>
+
+  <script>
+    lucide.createIcons();
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        document.getElementById('loader').style.display = 'none';
+      }, 1500);
+    });
+  </script>
 </body>
 </html>
