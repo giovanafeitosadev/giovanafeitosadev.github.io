@@ -9,44 +9,41 @@
 </head>
 <body>
 
-  <!-- Tela de carregamento -->
-  <div id="loader">
-    <div class="loader-icon">VS</div>
-    <p>Carregando portfólio</p>
-    <div class="progress-bar"><div class="progress"></div></div>
-    <span>Seja bem-vindo ao meu perfil!</span>
-  </div>
-
-  <!-- Conteúdo Principal -->
   <div class="container">
     
+    <!-- Botões de Idioma -->
+    <div class="lang-switch">
+      <button class="lang-btn" onclick="setLanguage('en')">🇺🇸 ENGLISH</button>
+      <button class="lang-btn active" onclick="setLanguage('pt')">🇧🇷 PORTUGUÊS</button>
+    </div>
+
     <!-- Perfil -->
     <div class="profile-header">
       <div class="avatar-container">
         <img src="https://github.com/giovanafeitosadev.png" alt="Giovana Feitosa" class="avatar">
       </div>
       <h1>Giovana Feitosa</h1>
-      <p class="subtitle">Estudante de Ciência da Computação | Entusiasta da Comunidade Tech</p>
+      <p class="subtitle" id="subtitle">Desenvolvedora & Criadora de Conteúdo Tech</p>
     </div>
 
-    <!-- Card sobre você -->
+    <!-- Card Bio -->
     <div class="card bio">
-      <p>Estudante de Ciência da Computação apaixonada pela comunidade Tech. Foco em <span>desenvolvimento</span> e <span>lógica de programação</span>, buscando aprender continuamente e contribuir para projetos que fazem a diferença.</p>
+      <p id="bio-text">Estudante de Ciência da Computação apaixonada pela comunidade Tech. Foco em <span>desenvolvimento</span> e <span>lógica de programação</span>, buscando aprender continuamente e contribuir para projetos que fazem a diferença.</p>
     </div>
 
     <!-- Contato -->
-    <p class="section-title">CONTATO</p>
+    <p class="section-title" id="title-contact">CONTATO</p>
     <a href="mailto:giovanafeitosa2306@gmail.com" class="card link-card border-pink">
       <i data-lucide="mail" class="icon-pink"></i>
       <div class="info">
-        <strong>ENVIAR EMAIL</strong>
+        <strong id="email-title">ENVIAR EMAIL</strong>
         <span>giovanafeitosa2306@gmail.com</span>
       </div>
       <i data-lucide="arrow-right" class="arrow"></i>
     </a>
 
     <!-- Redes Profissionais -->
-    <p class="section-title">REDES PROFISSIONAIS</p>
+    <p class="section-title" id="title-social">REDES PROFISSIONAIS</p>
 
     <a href="https://instagram.com/gitechgirl" target="_blank" class="card link-card">
       <i data-lucide="instagram" class="icon-pink"></i>
@@ -61,7 +58,7 @@
       <i data-lucide="linkedin" class="icon-pink"></i>
       <div class="info">
         <strong>LINKEDIN</strong>
-        <span>Conecte-se comigo</span>
+        <span id="linkedin-sub">Conecte-se comigo</span>
       </div>
       <i data-lucide="arrow-right" class="arrow"></i>
     </a>
@@ -70,12 +67,12 @@
       <i data-lucide="github" class="icon-pink"></i>
       <div class="info">
         <strong>GITHUB</strong>
-        <span>Meus projetos e contribuições</span>
+        <span id="github-sub">Meus projetos e contribuições</span>
       </div>
       <i data-lucide="arrow-right" class="arrow"></i>
     </a>
 
-    <footer class="footer">
+    <footer class="footer" id="footer-text">
       © 2026 Giovana Feitosa. Todos os direitos reservados.
     </footer>
 
@@ -83,11 +80,44 @@
 
   <script>
     lucide.createIcons();
-    window.addEventListener('load', () => {
-      setTimeout(() => {
-        document.getElementById('loader').style.display = 'none';
-      }, 1500);
-    });
+
+    const texts = {
+      pt: {
+        subtitle: "Desenvolvedora & Criadora de Conteúdo Tech",
+        bio: "Estudante de Ciência da Computação apaixonada pela comunidade Tech. Foco em <span>desenvolvimento</span> e <span>lógica de programação</span>, buscando aprender continuamente e contribuir para projetos que fazem a diferença.",
+        contact: "CONTATO",
+        emailTitle: "ENVIAR EMAIL",
+        social: "REDES PROFISSIONAIS",
+        linkedinSub: "Conecte-se comigo",
+        githubSub: "Meus projetos e contribuições",
+        footer: "© 2026 Giovana Feitosa. Todos os direitos reservados."
+      },
+      en: {
+        subtitle: "Developer & Tech Content Creator",
+        bio: "Computer Science student passionate about the Tech community. Focused on <span>software development</span> and <span>programming logic</span>, continuously learning and contributing to impactful projects.",
+        contact: "CONTACT",
+        emailTitle: "SEND EMAIL",
+        social: "PROFESSIONAL NETWORKS",
+        linkedinSub: "Connect with me",
+        githubSub: "My projects and contributions",
+        footer: "© 2026 Giovana Feitosa. All rights reserved."
+      }
+    };
+
+    function setLanguage(lang) {
+      document.getElementById('subtitle').innerText = texts[lang].subtitle;
+      document.getElementById('bio-text').innerHTML = texts[lang].bio;
+      document.getElementById('title-contact').innerText = texts[lang].contact;
+      document.getElementById('email-title').innerText = texts[lang].emailTitle;
+      document.getElementById('title-social').innerText = texts[lang].social;
+      document.getElementById('linkedin-sub').innerText = texts[lang].linkedinSub;
+      document.getElementById('github-sub').innerText = texts[lang].githubSub;
+      document.getElementById('footer-text').innerText = texts[lang].footer;
+
+      const buttons = document.querySelectorAll('.lang-btn');
+      buttons[0].classList.toggle('active', lang === 'en');
+      buttons[1].classList.toggle('active', lang === 'pt');
+    }
   </script>
 </body>
 </html>
